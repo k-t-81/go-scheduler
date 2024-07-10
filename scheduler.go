@@ -209,4 +209,5 @@ func (scheduler *Scheduler) runPending() {
 func (scheduler *Scheduler) registerTask(task *task.Task) {
 	_, _ = scheduler.funcRegistry.Add(task.Func)
 	scheduler.tasks[task.Hash()] = task
+	scheduler.taskStore.Add(task)
 }
